@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Livraria Django</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <h1>📚 Livraria Django</h1>
+        <a href="{% url 'book-list' %}">Ver Livros</a>
+        <a href="{% url 'book-add' %}">Adicionar Livro</a>
+        <a href="{% url 'logout' %}">sair</a>
+
+    </div>
+
+    
+    <div class="container">
+
+        <h2>Bem-vindo à Livraria</h2>
+
+        <h3 style="margin-top: 40px;">Funcionalidades</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>📘 Cadastro de Livros</h3>
+                <p>Adicione novos livros ao sistema de forma rápida e intuitiva.</p>
+                <a href="{% url 'book-add' %}" class="btn-primary">Cadastrar</a>
+            </div>
+
+            <div class="card">
+                <h3>📚 Listagem Completa</h3>
+                <p>Veja todos os livros cadastrados com paginação e busca.</p>
+                <a href="{% url 'book-list' %}" class="btn-primary">Ver Lista</a>
+            </div>
+
+            <div class="card">
+                <h3>✏️ Edição</h3>
+                <p>Atualize dados dos livros já cadastrados.</p>
+                <a href="{% url 'book-list' %}" class="btn-primary">Editar Livros</a>
+            </div>
+
+            <div class="card">
+                <h3>🗑️ Exclusão</h3>
+                <p>Remova livros que não são mais necessários.</p>
+                <a href="{% url 'book-list' %}" class="btn-primary">Excluir Livros</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

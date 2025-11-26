@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Confirmar exclusão</h2>
+<p>Tem certeza que deseja excluir "{{ object.title }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Sim, excluir</button>
+  <a href="{% url 'book-detail' object.pk %}">Cancelar</a>
+</form>
+{% endblock %}

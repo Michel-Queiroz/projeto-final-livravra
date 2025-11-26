@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ object.title }}</h2>
+<p><b>Autor:</b> {{ object.author }}</p>
+<p><b>Publicado:</b> {{ object.published_date }}</p>
+<p><b>ISBN:</b> {{ object.isbn }}</p>
+<p><b>Páginas:</b> {{ object.pages }}</p>
+<p>{{ object.summary }}</p>
+<p>
+  <a href="{% url 'book-edit' object.pk %}">Editar</a> |
+  <a href="{% url 'book-delete' object.pk %}">Excluir</a> |
+  <a href="{% url 'book-list' %}">Voltar</a>
+</p>
+{% endblock %}

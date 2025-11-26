@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Lista de Livros</h1>
+<form method="get" style="margin-bottom:10px;">
+  <input type="text" name="q" placeholder="Buscar por título" value="{{ request.GET.q }}">
+  <button type="submit">Buscar</button>
+  <a href="{% url 'book-add' %}" style="margin-left:10px;">+ Novo Livro</a>
+</form>
+<ul>
+  {% for book in books %}
+    <li>
+      <a href="{% url 'book-detail' book.pk %}">{{ book.title }}</a> — {{ book.author }}
+      <small> — <a href="{% url 'book-edit' book.pk %}">Editar</a> | <a href="{% url 'book-delete' book.pk %}">Excluir</a></small>
+    </li>
+  {% empty %}
+    <li>Nenhum livro cadastrado.</li>
+  {% endfor %}
+</ul>
+
+{% if is_paginated %}
+  <div>
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Anterior</a>
+    {% endif %}
+    <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Próximo</a>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}
