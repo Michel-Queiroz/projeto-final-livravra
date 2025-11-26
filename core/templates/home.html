@@ -1,25 +1,7 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Livraria Django</title>
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <h1>📚 Livraria Django</h1>
-        <a href="{% url 'book-list' %}">Ver Livros</a>
-        <a href="{% url 'book-add' %}">Adicionar Livro</a>
-        <a href="{% url 'logout' %}">sair</a>
-
-    </div>
-
-    
+{% block content %}
+  
     <div class="container">
 
         <h2>Bem-vindo à Livraria</h2>
@@ -55,7 +37,5 @@
         </div>
 
     </div>
+{% endblock %}
 
-</body>
-
-</html>

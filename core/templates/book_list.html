@@ -7,9 +7,11 @@
   <a href="{% url 'book-add' %}" style="margin-left:10px;">+ Novo Livro</a>
 </form>
 <ul>
+
   {% for book in books %}
     <li>
-      <a href="{% url 'book-detail' book.pk %}">{{ book.title }}</a> — {{ book.author }}
+      
+      <a href="{% url 'book-detail' book.pk %}">{{ book.titulo }}</a> — {{ book.author }}
       <small> — <a href="{% url 'book-edit' book.pk %}">Editar</a> | <a href="{% url 'book-delete' book.pk %}">Excluir</a></small>
     </li>
   {% empty %}
