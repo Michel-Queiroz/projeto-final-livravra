@@ -4,24 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
+    <style>
+        body{
+            background-color: rgb(231, 238, 243);
+        }
+        #pai{
+           display: flex;
+           justify-content:space-around;
+           margin-top: 386px;
+        }
+        .botaoLogar input {
+            width: 125px;
+            height: 30px;
+            background-color: #fcbe13;
+            color: black;
+            font-size: 16px;
+            border-radius: 17px;
+            display: flex;
+            align-items: center;
+            font-family: cursive;
+        }
+        #login .botaoLogar{
+            display: flex;
+            justify-content: center;
+        }
+        h1{
+            font-family: cursive;
+        }
+
+    </style>
 </head>
 <body>
-    <main>
+    <main id="pai">
         <div>
-           <h1>login</h1> 
+           <h1>Bem vindo a Livraria VM</h1> 
         </div>
-        <div>
-
+        <div id="login">
             <form action="{% url 'login' %}" method="post"> 
                 {% csrf_token %}
-                <input type="text" placeholder="username" name="username">
-                <br>
-                <br>
-                <input type="password" placeholder="senha" name="senha">
-                <br>
-                <br>
-                <input type="submit" value="logar">
-
+                <p>
+                    <input type="text" placeholder="username" name="username">
+                </p>
+                <p>
+                    <input type="password" placeholder="senha" name="senha">
+                </p>
+                <p class=botaoLogar>
+                    <input type="submit" value="Logar">
+                </p>
         </form>
         </div>
     </main>
